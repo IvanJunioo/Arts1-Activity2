@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Still Online</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #060400;
+      color: #c8920a;
+      font-family: "Courier New", Courier, monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 28px 18px;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 2px,
+        rgba(0,0,0,0.18) 2px,
+        rgba(0,0,0,0.18) 4px
+      );
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(200,150,10,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 199;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #7a5a06;
+      padding-bottom: 10px;
+      margin-bottom: 13px;
+    }
+
+    .title-main {
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 14px;
+      color: #f0c020;
+      text-shadow: 0 0 28px rgba(240,192,32,0.5), 0 0 60px rgba(240,192,32,0.2);
+    }
+
+    .title-meta {
+      text-align: right;
+      font-size: 9px;
+      color: #664a05;
+      letter-spacing: 2px;
+      line-height: 1.9;
+    }
+
+    .sysbar {
+      display: flex;
+      gap: 0;
+      font-size: 9px;
+      color: #664a05;
+      letter-spacing: 2px;
+      margin-bottom: 13px;
+      border-bottom: 1px solid #2a1c02;
+      padding-bottom: 8px;
+      justify-content: space-between;
+    }
+
+    .log-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .entry {
+      border: 1px solid #4a2e03;
+      padding: 10px 13px 12px;
+      position: relative;
+      background: rgba(180, 120, 8, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .entry::before {
+      content: attr(data-index);
+      position: absolute;
+      top: -7px;
+      left: 10px;
+      background: #060400;
+      padding: 0 5px;
+      font-size: 8px;
+      color: #664a05;
+      letter-spacing: 2px;
+    }
+
+    .time {
+      font-size: 9px;
+      color: #664a05;
+      margin-bottom: 9px;
+      letter-spacing: 1.5px;
+      border-bottom: 1px solid #2a1c02;
+      padding-bottom: 7px;
+    }
+
+    .content {
+      font-size: 11px;
+      line-height: 2;
+      flex: 1;
+    }
+
+    .label { color: #7a5808; }
+    .value { color: #e0ac18; }
+    .value-hi { color: #f0c020; text-shadow: 0 0 8px rgba(240,192,32,0.4); }
+    .value-err { color: #c84040; text-shadow: 0 0 8px rgba(200,64,64,0.3); }
+    .value-ok  { color: #50a850; text-shadow: 0 0 8px rgba(80,168,80,0.3); }
+    .value-warn { color: #d07010; }
+    .muted { color: #3e2802; font-style: italic; }
+
+    .footer {
+      border-top: 1px solid #2a1c02;
+      padding-top: 9px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: #3e2802;
+      text-transform: uppercase;
+    }
+
+    .cursor {
+      color: #f0c020;
+      font-size: 15px;
+      line-height: 1;
+      animation: blink 1s step-end infinite;
+      text-shadow: 0 0 10px rgba(240,192,32,0.8);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="title-main">STILL ONLINE</div>
+    <div class="title-meta">
+      ENTRIES: 006&nbsp;&nbsp;&nbsp;SPAN: 05.03–05.07.2026<br>
+      SUBJECT: CS STUDENT / UP DILIMAN<br>
+      STATUS: &nbsp;ACTIVE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <div class="sysbar">
+    <span>SYS / CONTINUOUS DOCUMENTATION</span>
+    <span>MED / HTML · CSS · MONOSPACE</span>
+    <span>REPETITION · TIME · ROUTINE</span>
+  </div>
+
+  <div class="log-grid">
+
+    <div class="entry" data-index="LOG.001">
+      <div class="time">05 / 03 / 2026 — 01:14 AM</div>
+      <div class="content">
+        <span class="label">LOCATION&nbsp;&nbsp;</span><span class="value">CS Library</span><br>
+        <span class="label">TABS_OPEN&nbsp;</span><span class="value">17</span><br>
+        <span class="label">STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value">tired</span><br>
+        <span class="label">ACTION&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value">compiling</span>
+      </div>
+    </div>
+
+    <div class="entry" data-index="LOG.002">
+      <div class="time">05 / 03 / 2026 — 01:16 AM</div>
+      <div class="content">
+        <span class="label">ERROR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value-err">segmentation fault</span><br>
+        <span class="label">COFFEE&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value">2 cups</span><br>
+        <br>
+        <span class="muted">keyboard sounds continue</span>
+      </div>
+    </div>
+
+    <div class="entry" data-index="LOG.003">
+      <div class="time">05 / 04 / 2026 — 07:42 PM</div>
+      <div class="content">
+        <span class="label">ROUTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value">UP - Ikot</span><br>
+        <span class="label">WEATHER&nbsp;&nbsp;&nbsp;</span><span class="value">humid</span><br>
+        <span class="label">THOUGHT&nbsp;&nbsp;&nbsp;</span><br>
+        <span class="value">&nbsp;"need to solve that<br>&nbsp;&nbsp;before sleeping"</span>
+      </div>
+    </div>
+
+    <div class="entry" data-index="LOG.004">
+      <div class="time">05 / 05 / 2026 — 02:03 AM</div>
+      <div class="content">
+        <span class="label">VERDICT&nbsp;&nbsp;&nbsp;</span><span class="value-ok">accepted</span><br>
+        <span class="label">MUSIC_LOOP&nbsp;</span><span class="value">3 hours</span><br>
+        <span class="label">STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value-hi">awake</span>
+      </div>
+    </div>
+
+    <div class="entry" data-index="LOG.005">
+      <div class="time">05 / 06 / 2026 — 11:57 PM</div>
+      <div class="content">
+        <span class="label">LOCATION&nbsp;&nbsp;</span><span class="value">bedroom</span><br>
+        <span class="label">BROWSER&nbsp;&nbsp;&nbsp;</span><span class="value">docs / forums / 3hrs lofi music<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lecture slides / </span><br>
+        <span class="label">BATTERY&nbsp;&nbsp;&nbsp;</span><span class="value-warn">9%</span>
+      </div>
+    </div>
+
+    <div class="entry" data-index="LOG.006">
+      <div class="time">05 / 07 / 2026 — 03:28 AM</div>
+      <div class="content">
+        <span class="label">SILENCE&nbsp;&nbsp;&nbsp;</span><span class="value">5 hours</span><br>
+        <span class="label">CURSOR&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="value">blinking</span><br>
+        <br>
+        <span class="muted">still online</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>repetition &nbsp;·&nbsp; time &nbsp;·&nbsp; routine &nbsp;·&nbsp; documentation</span>
+    <span class="cursor">█</span>
+  </div>
+
+</body>
+</html>
